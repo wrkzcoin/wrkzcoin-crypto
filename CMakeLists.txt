@@ -21,6 +21,19 @@ project(wrkzcoin-crypto)
 enable_language(C)
 enable_language(CXX)
 
+# Ensure static archives always get indexed for linkers that require ranlib.
+if(NOT MSVC)
+  if(NOT CMAKE_RANLIB)
+    find_program(CMAKE_RANLIB NAMES llvm-ranlib ranlib)
+  endif()
+
+  if(CMAKE_RANLIB)
+    set(CMAKE_C_ARCHIVE_FINISH "<CMAKE_RANLIB> <TARGET>")
+    set(CMAKE_CXX_ARCHIVE_FINISH "<CMAKE_RANLIB> <TARGET>")
+    message(STATUS "Using ranlib program: ${CMAKE_RANLIB}")
+  endif()
+endif()
+
 ## This section describes our general CMake setup options
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set(CMAKE_SKIP_INSTALL_RULES OFF FORCE)
