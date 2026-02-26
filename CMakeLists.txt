@@ -267,13 +267,10 @@ else()
   # Override our release flags for emscripten compatibility
   set(CMAKE_C_FLAGS_DEBUG "")
   set(CMAKE_CXX_FLAGS_DEBUG "")
-  set(CMAKE_C_FLAGS_RELEASE "-O3 --llvm-lto 3 -DNDEBUG -Wno-unused-variable")
-  set(CMAKE_CXX_FLAGS_RELEASE "-O3 --llvm-lto 3 -DNDEBUG -Wno-unused-variable")
+  set(CMAKE_C_FLAGS_RELEASE "-O3 -DNDEBUG -Wno-unused-variable")
+  set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG -Wno-unused-variable")
 
   set(JS_LINKFLAGS
-    --llvm-opts 3
-    --llvm-lto 3
-    --closure 1
     -s SINGLE_FILE=1
     -s EXPORT_NAME="'WrkzCoinCrypto'"
     -s POLYFILL_OLD_MATH_FUNCTIONS=1
@@ -285,15 +282,15 @@ else()
 
   if(BUILD_JS)
     set(CMAKE_EXECUTABLE_SUFFIX ".js")
-    set(JS_LINKFLAGS_STR "${JS_LINKFLAGS_STR} -s WASM=0 --js-opts 1")
+    set(JS_LINKFLAGS_STR "${JS_LINKFLAGS_STR} -s WASM=0")
     message(STATUS "emcc flags: ${JS_LINKFLAGS_STR}")
     set_target_properties(wrkzcoin-crypto PROPERTIES LINK_FLAGS "${JS_LINKFLAGS_STR}")
   endif()
 
   if(BUILD_WASM)
     set(CMAKE_EXECUTABLE_SUFFIX "-wasm.js")
-    set(JS_LINKFLAGS_STR "${JS_LINKFLAGS_STR} -s WASM=1 -s BINARYEN_METHOD='native-wasm'")
+    set(JS_LINKFLAGS_STR "${JS_LINKFLAGS_STR} -s WASM=1")
     message(STATUS "emcc flags: ${JS_LINKFLAGS_STR}")
-    set_target_properties(wrkzcoin-crypto PROPERTIES LINK_FLAGS "${JS_LINKFLAGS_STR} -s WASM=1 -s BINARYEN_METHOD='native-wasm'")
+    set_target_properties(wrkzcoin-crypto PROPERTIES LINK_FLAGS "${JS_LINKFLAGS_STR}")
   endif()
 endif()
