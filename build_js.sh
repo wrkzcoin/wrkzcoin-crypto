@@ -45,8 +45,8 @@ mkdir -p "${ROOT_DIR}/jsbuild"
 cd "${ROOT_DIR}/jsbuild"
 rm -rf *
 
-emconfigure cmake .. -DNO_AES=1 -DARCH=default -DBUILD_WASM=1 -DBUILD_JS=0
+emcmake cmake .. -DNO_AES=1 -DARCH=default -DBUILD_WASM=1 -DBUILD_JS=0
 make && cp wrkzcoin-crypto-wasm.js "${ROOT_DIR}/dist"
 
-emconfigure cmake .. -DNO_AES=1 -DARCH=default -DBUILD_WASM=0 -DBUILD_JS=1
+emcmake cmake .. -DNO_AES=1 -DARCH=default -DBUILD_WASM=0 -DBUILD_JS=1
 make && cp wrkzcoin-crypto.js "${ROOT_DIR}/dist"
