@@ -24,7 +24,7 @@ namespace Core
             return false;
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _cn_fast_hash([MarshalAs(UnmanagedType.LPStr)]string input, ref IntPtr output);
 
         static public string cn_fast_hash(string data)
@@ -38,7 +38,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _cn_slow_hash_v0([MarshalAs(UnmanagedType.LPStr)]string input, ref IntPtr output);
 
         static public string cn_slow_hash_v0(string data)
@@ -52,7 +52,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _cn_slow_hash_v1([MarshalAs(UnmanagedType.LPStr)]string input, ref IntPtr output);
 
         static public string cn_slow_hash_v1(string data)
@@ -66,7 +66,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _cn_slow_hash_v2([MarshalAs(UnmanagedType.LPStr)]string input, ref IntPtr output);
 
         static public string cn_slow_hash_v2(string data)
@@ -80,7 +80,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _cn_lite_slow_hash_v0([MarshalAs(UnmanagedType.LPStr)]string input, ref IntPtr output);
 
         static public string cn_lite_slow_hash_v0(string data)
@@ -94,7 +94,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _cn_lite_slow_hash_v1([MarshalAs(UnmanagedType.LPStr)]string input, ref IntPtr output);
 
         static public string cn_lite_slow_hash_v1(string data)
@@ -108,7 +108,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _cn_lite_slow_hash_v2([MarshalAs(UnmanagedType.LPStr)]string input, ref IntPtr output);
 
         static public string cn_lite_slow_hash_v2(string data)
@@ -122,7 +122,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _cn_dark_slow_hash_v0([MarshalAs(UnmanagedType.LPStr)]string input, ref IntPtr output);
 
         static public string cn_dark_slow_hash_v0(string data)
@@ -136,7 +136,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _cn_dark_slow_hash_v1([MarshalAs(UnmanagedType.LPStr)]string input, ref IntPtr output);
 
         static public string cn_dark_slow_hash_v1(string data)
@@ -150,7 +150,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _cn_dark_slow_hash_v2([MarshalAs(UnmanagedType.LPStr)]string input, ref IntPtr output);
 
         static public string cn_dark_slow_hash_v2(string data)
@@ -164,7 +164,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _cn_dark_lite_slow_hash_v0([MarshalAs(UnmanagedType.LPStr)]string input, ref IntPtr output);
 
         static public string cn_dark_lite_slow_hash_v0(string data)
@@ -178,7 +178,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _cn_dark_lite_slow_hash_v1([MarshalAs(UnmanagedType.LPStr)]string input, ref IntPtr output);
 
         static public string cn_dark_lite_slow_hash_v1(string data)
@@ -192,7 +192,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _cn_dark_lite_slow_hash_v2([MarshalAs(UnmanagedType.LPStr)]string input, ref IntPtr output);
 
         static public string cn_dark_lite_slow_hash_v2(string data)
@@ -206,7 +206,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _cn_turtle_slow_hash_v0([MarshalAs(UnmanagedType.LPStr)]string input, ref IntPtr output);
 
         static public string cn_turtle_slow_hash_v0(string data)
@@ -220,7 +220,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _cn_turtle_slow_hash_v1([MarshalAs(UnmanagedType.LPStr)]string input, ref IntPtr output);
 
         static public string cn_turtle_slow_hash_v1(string data)
@@ -234,7 +234,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _cn_turtle_slow_hash_v2([MarshalAs(UnmanagedType.LPStr)]string input, ref IntPtr output);
 
         static public string cn_turtle_slow_hash_v2(string data)
@@ -290,7 +290,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _cn_soft_shell_slow_hash_v0([MarshalAs(UnmanagedType.LPStr)]string input, UInt32 height, ref IntPtr output);
 
         static public string cn_soft_shell_slow_hash_v0(string data, UInt32 height)
@@ -304,7 +304,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _cn_soft_shell_slow_hash_v1([MarshalAs(UnmanagedType.LPStr)]string input, UInt32 height, ref IntPtr output);
 
         static public string cn_soft_shell_slow_hash_v1(string data, UInt32 height)
@@ -318,7 +318,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _cn_soft_shell_slow_hash_v2([MarshalAs(UnmanagedType.LPStr)]string input, UInt32 height, ref IntPtr output);
 
         static public string cn_soft_shell_slow_hash_v2(string data, UInt32 height)
@@ -332,7 +332,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _chukwa_slow_hash([MarshalAs(UnmanagedType.LPStr)]string input, ref IntPtr output);
 
         static public string chukwa_slow_hash(string data)
@@ -356,7 +356,7 @@ namespace Core
 
         /* checkRingSignature */
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _generatePrivateViewKeyFromPrivateSpendKey([MarshalAs(UnmanagedType.LPStr)]string spendPrivateKey, ref IntPtr viewPrivateKey);
 
         static public string generatePrivateViewKeyFromPrivateSpendKey(string spendPrivateKey)
@@ -370,7 +370,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(viewPrivateKey);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _generateViewKeysFromPrivateSpendKey([MarshalAs(UnmanagedType.LPStr)]string spendPrivateKey, ref IntPtr viewPrivateKey, ref IntPtr viewPublicKey);
 
         static public Keys generateViewKeysFromPrivateSpendKey(string spendPrivateKey)
@@ -392,7 +392,7 @@ namespace Core
             return viewKeys;
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _generateKeys(ref IntPtr privateKey, ref IntPtr publicKey);
 
         static public Keys generateKeys()
@@ -412,7 +412,7 @@ namespace Core
             return keys;
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern int _checkKey([MarshalAs(UnmanagedType.LPStr)]string publicKey);
 
         static public bool checkKey(string publicKey)
@@ -426,7 +426,7 @@ namespace Core
             return false;
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern int _secretKeyToPublicKey([MarshalAs(UnmanagedType.LPStr)]string privateKey, ref IntPtr publicKey);
 
         static public string secretKeyToPublicKey(string privateKey)
@@ -442,7 +442,7 @@ namespace Core
             return null;
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern int _generateKeyDerivation([MarshalAs(UnmanagedType.LPStr)]string publicKey, [MarshalAs(UnmanagedType.LPStr)]string privateKey, ref IntPtr derivation);
 
         static public string generateKeyDerivation(string publicKey, string privateKey)
@@ -458,7 +458,7 @@ namespace Core
             return null;
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern int _derivePublicKey([MarshalAs(UnmanagedType.LPStr)]string derivation, UInt32 outputIndex, [MarshalAs(UnmanagedType.LPStr)]string publicKey, ref IntPtr derivedKey);
 
         static public string derivePublicKey(string derivation, UInt32 outputIndex, string publicKey)
@@ -474,7 +474,7 @@ namespace Core
             return null;
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _deriveSecretKey([MarshalAs(UnmanagedType.LPStr)]string derivation, UInt32 outputIndex, [MarshalAs(UnmanagedType.LPStr)]string privateKey, ref IntPtr derivedKey);
 
         static public string deriveSecretKey(string derivation, UInt32 outputIndex, string privateKey)
@@ -488,7 +488,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(derivedKey);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern int _underivePublicKey([MarshalAs(UnmanagedType.LPStr)]string derivation, UInt32 outputIndex, [MarshalAs(UnmanagedType.LPStr)]string derivedKey, ref IntPtr publicKey);
 
         static public string underivePublicKey(string derivation, UInt32 outputIndex, string derivedKey)
@@ -504,7 +504,7 @@ namespace Core
             return null;
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _generateSignature([MarshalAs(UnmanagedType.LPStr)]string prefixHash, [MarshalAs(UnmanagedType.LPStr)]string publicKey, [MarshalAs(UnmanagedType.LPStr)]string privateKey, ref IntPtr signature);
 
         static public string generateSignature(string prefixHash, string publicKey, string privateKey)
@@ -518,7 +518,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(signature);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern bool _checkSignature([MarshalAs(UnmanagedType.LPStr)]string prefixHash, [MarshalAs(UnmanagedType.LPStr)]string publicKey, [MarshalAs(UnmanagedType.LPStr)]string signature);
 
         public static bool CheckSignature(string prefixHash, string publicKey, string signature)
@@ -530,7 +530,7 @@ namespace Core
             return _checkSignature(prefixHash, publicKey, signature);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _generateKeyImage([MarshalAs(UnmanagedType.LPStr)]string publicKey, [MarshalAs(UnmanagedType.LPStr)]string privateKey, ref IntPtr keyImage);
 
         static public string generateKeyImage(string publicKey, string privateKey)
@@ -544,7 +544,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(keyImage);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _scalarmultKey([MarshalAs(UnmanagedType.LPStr)]string keyImageA, [MarshalAs(UnmanagedType.LPStr)]string keyImageB, ref IntPtr keyImageC);
 
         static public string scalarmultKey(string keyImageA, string keyImageB)
@@ -558,7 +558,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(keyImageC);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _hashToEllipticCurve([MarshalAs(UnmanagedType.LPStr)]string hash, ref IntPtr ec);
 
         static public string hashToEllipticCurve(string hash)
@@ -572,7 +572,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(ec);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _scReduce32([MarshalAs(UnmanagedType.LPStr)]string input, ref IntPtr output);
 
         static public string scReduce32(string input)
@@ -586,7 +586,7 @@ namespace Core
             return Marshal.PtrToStringAnsi(output);
         }
 
-        [DllImport("turtlecoin-crypto-shared")]
+        [DllImport("wrkzcoin-crypto-shared")]
         private static extern void _hashToScalar([MarshalAs(UnmanagedType.LPStr)]string hash, ref IntPtr scalar);
 
         static public string hashToScalar(string hash)

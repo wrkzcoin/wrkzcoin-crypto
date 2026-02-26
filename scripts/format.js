@@ -1,4 +1,7 @@
-/* Copied from TurtleCoin main repo at https://github.com/TurtleCoin/TurtleCoin */
+// Copyright (c) 2026, The WrkzCoin Developers
+// Portions derived from the TurtleCoin project contributors.
+//
+// Please see the included LICENSE file for more information.
 
 const { promisify } = require('util')
 const childProcess = require('child_process')

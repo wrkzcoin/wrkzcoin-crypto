@@ -6,7 +6,7 @@
 #include <chrono>
 #include <cxxopts.hpp>
 #include <iostream>
-#include <turtlecoin-crypto.h>
+#include <wrkzcoin-crypto.h>
 
 #define PERFORMANCE_ITERATIONS 1000
 #define PERFORMANCE_ITERATIONS_LONG_MULTIPLIER 10

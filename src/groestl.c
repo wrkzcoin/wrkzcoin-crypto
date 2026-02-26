@@ -1,3 +1,8 @@
+// Copyright (c) 2026, The WrkzCoin Developers
+// Portions derived from the TurtleCoin project contributors.
+//
+// Please see the included LICENSE file for more information.
+
 /* hash.c     April 2012
  * Groestl ANSI C code optimised for 32-bit machines
  * Author: Thomas Krinninger

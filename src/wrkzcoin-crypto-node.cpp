@@ -3,7 +3,7 @@
 // Please see the included LICENSE file for more information.
 
 #include <nan.h>
-#include <turtlecoin-crypto.h>
+#include <wrkzcoin-crypto.h>
 #include <v8.h>
 
 /*
@@ -2309,4 +2309,4 @@ NAN_MODULE_INIT(InitModule)
          Nan::GetFunction(Nan::New<v8::FunctionTemplate>(chukwa_slow_hash_v2)).ToLocalChecked());
 }
 
-NODE_MODULE(turtlecoincrypto, InitModule);
+NODE_MODULE(wrkzcoincrypto, InitModule);

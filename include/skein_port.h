@@ -1,3 +1,8 @@
+// Copyright (c) 2026, The WrkzCoin Developers
+// Portions derived from the TurtleCoin project contributors.
+//
+// Please see the included LICENSE file for more information.
+
 #ifndef _SKEIN_PORT_H_
 #define _SKEIN_PORT_H_
 
