@@ -5,7 +5,7 @@
 'use strict';
 
 const Crypto = require('../').Crypto;
-const TurtleCoinCrypto = new Crypto();
+const WrkzCoinCrypto = new Crypto();
 const iterations = process.env.BENCHMARK_ITERATIONS || 10000;
 const timer = require('perf_hooks').performance;
 
@@ -35,17 +35,17 @@ console.log('');
 console.log('Starting core crypto benchmarks...');
 console.log('');
 
-runTest('cn_fast_hash', () => TurtleCoinCrypto.cn_fast_hash('00000000'));
+runTest('cn_fast_hash', () => WrkzCoinCrypto.cn_fast_hash('00000000'));
 
 runTest('secretKeyToPublicKey',
-    () => TurtleCoinCrypto.secretKeyToPublicKey(
+    () => WrkzCoinCrypto.secretKeyToPublicKey(
         '9e401f727e5327080b2db6266e782356738e1eb828f39191f97771a4e401e101'
     )
 );
 
 runTest(
     'generateKeyDerivation',
-    () => TurtleCoinCrypto.generateKeyDerivation(
+    () => WrkzCoinCrypto.generateKeyDerivation(
         '3b0cc2b066812e6b9fcc42a797dc3c723a7344b604fd4be0b22e06254ff57f94',
         '6968a0b8f744ec4b8cea5ec124a1b4bd1626a2e6f31e999f8adbab52c4dfa909'
     ),
@@ -53,7 +53,7 @@ runTest(
 );
 
 runTest('derivePublicKey',
-    () => TurtleCoinCrypto.derivePublicKey(
+    () => WrkzCoinCrypto.derivePublicKey(
         '4827dbde0c0994c0979e2f9c046825bb4a065b6e35cabc0290ff5216af060c20',
         2,
         '854a637b2863af9e8e8216eb2382f3d16616b3ac3e53d0976fbd6f8da6c56418'
@@ -62,7 +62,7 @@ runTest('derivePublicKey',
 );
 
 runTest('underivePublicKey',
-    () => TurtleCoinCrypto.underivePublicKey(
+    () => WrkzCoinCrypto.underivePublicKey(
         '4827dbde0c0994c0979e2f9c046825bb4a065b6e35cabc0290ff5216af060c20',
         2,
         'bb55bef919d1c9f74b5b52a8a6995a1dc4af4c0bb8824f5dc889012bc748173d'
@@ -71,7 +71,7 @@ runTest('underivePublicKey',
 );
 
 runTest('deriveSecretKey',
-    () => TurtleCoinCrypto.deriveSecretKey(
+    () => WrkzCoinCrypto.deriveSecretKey(
         '4827dbde0c0994c0979e2f9c046825bb4a065b6e35cabc0290ff5216af060c20',
         2,
         'd9d555a892a85f64916cae1a168bd3f7f400b6471c7b12b438b599601298210b'
@@ -80,7 +80,7 @@ runTest('deriveSecretKey',
 );
 
 runTest('generateKeyImage',
-    () => TurtleCoinCrypto.generateKeyImage(
+    () => WrkzCoinCrypto.generateKeyImage(
         'bb55bef919d1c9f74b5b52a8a6995a1dc4af4c0bb8824f5dc889012bc748173d',
         'e52ece5717f01843e3accc4df651d669e339c31eb8059145e881faae19ad4a0e'
     ),

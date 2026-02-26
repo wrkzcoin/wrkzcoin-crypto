@@ -1,3 +1,8 @@
+# Copyright (c) 2026, The WrkzCoin Developers
+# Portions derived from the TurtleCoin project contributors.
+#
+# Please see the included LICENSE file for more information.
+
 {
   "variables": {
     "v8_enable_pointer_compression": "false",
@@ -5,7 +10,7 @@
   },
   "targets": [
     {
-      "target_name": "turtlecoin-crypto",
+      "target_name": "wrkzcoin-crypto",
       "defines": [
         "NDEBUG",
         "NO_CRYPTO_EXPORTS",
@@ -108,8 +113,8 @@
         "external/ed25519/sc_sub.c",
         "external/ed25519/signum.c",
         "external/ed25519/slide.c",
-        "src/turtlecoin-crypto.cpp",
-        "src/turtlecoin-crypto-node.cpp"
+        "src/wrkzcoin-crypto.cpp",
+        "src/wrkzcoin-crypto-node.cpp"
       ],
       "cflags!": [
         "-std=c11",

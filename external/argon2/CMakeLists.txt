@@ -73,6 +73,17 @@ endif()
 
 add_library(argon2 STATIC ${ARGON2_SRC})
 
+# Some toolchain combinations (notably clang/llvm on Linux) may emit a static
+# archive without a usable index, which fails at final link step.
+if(CMAKE_RANLIB)
+    add_custom_command(
+        TARGET argon2
+        POST_BUILD
+        COMMAND ${CMAKE_RANLIB} $<TARGET_FILE:argon2>
+        COMMENT "-- Argon2: Indexing static archive with ranlib"
+    )
+endif()
+
 target_compile_definitions(argon2
     PUBLIC "A2_VISCTL"
 )

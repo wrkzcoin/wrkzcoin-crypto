@@ -37,7 +37,7 @@
   "dependencies": {
     "bindings": "^1.5.0",
     "js-sha3": "^0.8.0",
-    "nan": "^2.14.1",
+    "nan": "^2.25.0",
     "prebuild-install": "^5.3.5"
   },
   "devDependencies": {

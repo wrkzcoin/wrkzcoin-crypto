@@ -5,7 +5,7 @@
 #include <emscripten/bind.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <turtlecoin-crypto.h>
+#include <wrkzcoin-crypto.h>
 
 using namespace emscripten;
 

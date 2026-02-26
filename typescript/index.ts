@@ -12,6 +12,8 @@ import {
 } from './Interfaces';
 
 export { IKeyPair, ICryptoConfig, IPreparedRingSignatures, CryptoType };
+export const COIN_TICKER = 'WRKZ';
+export const COIN_DECIMAL_PLACES = 2;
 
 /**
  * @ignore
@@ -45,7 +47,7 @@ Array.prototype.toVectorString = function () {
 };
 
 /**
- * A class containing the TurtleCoin cryptographic primitive methods that wraps
+ * A class containing the WrkzCoin cryptographic primitive methods that wraps
  * the Node.js native module, the WASM binary, or native JS implementations
  * into a common interface
  */
@@ -1563,7 +1565,7 @@ function loadBrowserWASM (): boolean {
     try {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        const Self = window.TurtleCoinCrypto();
+        const Self = window.WrkzCoinCrypto();
 
         if (Object.getOwnPropertyNames(Self).length === 0 ||
             typeof Self.cn_fast_hash === 'undefined') {
@@ -1584,7 +1586,7 @@ function loadBrowserWASM (): boolean {
  */
 function loadNativeAddon (): boolean {
     try {
-        const Self = require('bindings')('turtlecoin-crypto.node');
+        const Self = require('bindings')('wrkzcoin-crypto.node');
 
         if (Object.getOwnPropertyNames(Self).length === 0 ||
             typeof Self.cn_fast_hash === 'undefined') {
@@ -1605,7 +1607,7 @@ function loadNativeAddon (): boolean {
  */
 function loadNativeJS (): boolean {
     try {
-        const Self = require('./turtlecoin-crypto.js')();
+        const Self = require('./wrkzcoin-crypto.js')();
 
         if (Object.getOwnPropertyNames(Self).length === 0 ||
             typeof Self.cn_fast_hash === 'undefined') {
@@ -1630,7 +1632,7 @@ function loadWASMJS (): boolean {
     }
 
     try {
-        const Self = require('./turtlecoin-crypto-wasm.js')();
+        const Self = require('./wrkzcoin-crypto-wasm.js')();
 
         if (Object.getOwnPropertyNames(Self).length === 0) {
             return false;

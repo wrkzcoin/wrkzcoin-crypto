@@ -4,7 +4,7 @@
 
 #include <StringTools.h>
 #include <string.h>
-#include <turtlecoin-crypto.h>
+#include <wrkzcoin-crypto.h>
 #include <atomic>
 #include <thread>
 

@@ -15,11 +15,24 @@ set(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build, options are
 set(CMAKE_CONFIGURATION_TYPES Debug RelWithDebInfo Release CACHE TYPE INTERNAL)
 set(ARCH native CACHE STRING "CPU to build for: -march value or default")
 
-project(turtlecoin-crypto)
+project(wrkzcoin-crypto)
 
 # Required for finding Threads on ARM
 enable_language(C)
 enable_language(CXX)
+
+# Ensure static archives always get indexed for linkers that require ranlib.
+if(NOT MSVC)
+  if(NOT CMAKE_RANLIB)
+    find_program(CMAKE_RANLIB NAMES llvm-ranlib ranlib)
+  endif()
+
+  if(CMAKE_RANLIB)
+    set(CMAKE_C_ARCHIVE_FINISH "<CMAKE_RANLIB> <TARGET>")
+    set(CMAKE_CXX_ARCHIVE_FINISH "<CMAKE_RANLIB> <TARGET>")
+    message(STATUS "Using ranlib program: ${CMAKE_RANLIB}")
+  endif()
+endif()
 
 ## This section describes our general CMake setup options
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
@@ -222,18 +235,18 @@ include_directories(external/ed25519)
 add_library(crypto STATIC ${BASE_CRYPTO})
 
 set(SOURCES
-  src/turtlecoin-crypto.cpp
+  src/wrkzcoin-crypto.cpp
 )
 
-add_library(turtlecoin-crypto-static STATIC ${SOURCES})
-target_link_libraries(turtlecoin-crypto-static crypto argon2 ed25519)
+add_library(wrkzcoin-crypto-static STATIC ${SOURCES})
+target_link_libraries(wrkzcoin-crypto-static crypto argon2 ed25519)
 
 if(NOT BUILD_JS AND NOT BUILD_WASM)
   if(WIN32)
-    add_library(turtlecoin-crypto-shared SHARED ${SOURCES})
-    target_link_libraries(turtlecoin-crypto-shared crypto argon2 ed25519)
-    target_link_libraries(turtlecoin-crypto-static ws2_32)
-    target_link_libraries(turtlecoin-crypto-shared ws2_32)
+    add_library(wrkzcoin-crypto-shared SHARED ${SOURCES})
+    target_link_libraries(wrkzcoin-crypto-shared crypto argon2 ed25519)
+    target_link_libraries(wrkzcoin-crypto-static ws2_32)
+    target_link_libraries(wrkzcoin-crypto-shared ws2_32)
   endif()
 
   set(CRYPTOTEST_SOURCES
@@ -241,28 +254,25 @@ if(NOT BUILD_JS AND NOT BUILD_WASM)
   )
 
   add_executable(cryptotest ${CRYPTOTEST_SOURCES})
-  target_link_libraries(cryptotest turtlecoin-crypto-static)
+  target_link_libraries(cryptotest wrkzcoin-crypto-static)
   set_property(TARGET cryptotest PROPERTY OUTPUT_NAME "cryptotest")
 else()
   set(JAVSCRIPT_SOURCES
-    src/turtlecoin-crypto-js.cpp
+    src/wrkzcoin-crypto-js.cpp
   )
 
-  add_executable(turtlecoin-crypto ${JAVSCRIPT_SOURCES})
-  target_link_libraries(turtlecoin-crypto turtlecoin-crypto-static)
+  add_executable(wrkzcoin-crypto ${JAVSCRIPT_SOURCES})
+  target_link_libraries(wrkzcoin-crypto wrkzcoin-crypto-static)
 
   # Override our release flags for emscripten compatibility
   set(CMAKE_C_FLAGS_DEBUG "")
   set(CMAKE_CXX_FLAGS_DEBUG "")
-  set(CMAKE_C_FLAGS_RELEASE "-O3 --llvm-lto 3 -DNDEBUG -Wno-unused-variable")
-  set(CMAKE_CXX_FLAGS_RELEASE "-O3 --llvm-lto 3 -DNDEBUG -Wno-unused-variable")
+  set(CMAKE_C_FLAGS_RELEASE "-O3 -DNDEBUG -Wno-unused-variable")
+  set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG -Wno-unused-variable")
 
   set(JS_LINKFLAGS
-    --llvm-opts 3
-    --llvm-lto 3
-    --closure 1
     -s SINGLE_FILE=1
-    -s EXPORT_NAME="'TurtleCoinCrypto'"
+    -s EXPORT_NAME="'WrkzCoinCrypto'"
     -s POLYFILL_OLD_MATH_FUNCTIONS=1
     -s MODULARIZE=1
     --bind
@@ -272,15 +282,15 @@ else()
 
   if(BUILD_JS)
     set(CMAKE_EXECUTABLE_SUFFIX ".js")
-    set(JS_LINKFLAGS_STR "${JS_LINKFLAGS_STR} -s WASM=0 --js-opts 1")
+    set(JS_LINKFLAGS_STR "${JS_LINKFLAGS_STR} -s WASM=0")
     message(STATUS "emcc flags: ${JS_LINKFLAGS_STR}")
-    set_target_properties(turtlecoin-crypto PROPERTIES LINK_FLAGS "${JS_LINKFLAGS_STR}")
+    set_target_properties(wrkzcoin-crypto PROPERTIES LINK_FLAGS "${JS_LINKFLAGS_STR}")
   endif()
 
   if(BUILD_WASM)
     set(CMAKE_EXECUTABLE_SUFFIX "-wasm.js")
-    set(JS_LINKFLAGS_STR "${JS_LINKFLAGS_STR} -s WASM=1 -s BINARYEN_METHOD='native-wasm'")
+    set(JS_LINKFLAGS_STR "${JS_LINKFLAGS_STR} -s WASM=1")
     message(STATUS "emcc flags: ${JS_LINKFLAGS_STR}")
-    set_target_properties(turtlecoin-crypto PROPERTIES LINK_FLAGS "${JS_LINKFLAGS_STR} -s WASM=1 -s BINARYEN_METHOD='native-wasm'")
+    set_target_properties(wrkzcoin-crypto PROPERTIES LINK_FLAGS "${JS_LINKFLAGS_STR}")
   endif()
 endif()
